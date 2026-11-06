@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>GitHub Issues Tracker</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="left">
+    <img class="img" src="assets/github-logo.png">
+    <h2>GitHub Issues Tracker</h2>
+  </div>
+
+  <div class="right">
+    <i class=" icon fa-solid fa-magnifying-glass"></i>
+    <input id="searchInput"  placeholder="Search issues..." >
+    <button class="issue">+ New Issue</button>
+  </div>
+</nav>
+
+<!-- TABS -->
+<div class="tabs">
+  <button class="tab active" onclick="setTab(this,'all')">All</button>
+  <button class="tab" onclick="setTab(this,'open')">Open</button>
+  <button class="tab" onclick="setTab(this,'closed')">Closed</button>
+</div>
+
+
+<!-- INFO -->
+<div class="info">
+  <div class="left-info">
+    <div>
+        <img src="assets/Aperture.png">
+    </div>
+    <div>
+        <h3 id="issueCount">0 Issues</h3>
+        <p class="para">Track and manage your project issues</p>
+    </div>
+      
+    
+  </div>
+
+  <div class="right-info">
+    <span><img src="assets/Open-Status.png" alt=""> Open</span>
+    <span><img src="assets/Closed- Status .png" alt=""> Closed</span>
+  </div>
+</div>
+
+<!-- LOADER -->
+<div id="loader"><i class="fa-solid fa-rotate-right"></i>Loading...</div>
+
+<!-- CARDS -->
+<div id="container" class="grid"></div>
+
+<div style="padding: 40px;"></div>
+
+<!-- MODAL -->
+<div id="modal" class="modal hidden">
+  <div class="modal-box">
+
+    <h2 id="mTitle"></h2>
+
+    <div class="meta">
+      <span id="mStatus" class="status"></span>
+      <span class="meta-text">• Opened by <b id="mAuthor"></b></span>
+      <span class="meta-text" id="mDate"></span>
+    </div>
+
+    <div id="mLabels" class="labels"></div>
+
+    <p id="mDesc" class="desc"></p>
+
+    <div class="bottom-box">
+      <div>
+        <p>Assignee:</p>
+        <b id="mAssignee"></b>
+      </div>
+
+      <div>
+        <p>Priority:</p>
+        <span id="mPriority" class="priority"></span>
+      </div>
+    </div>
+
+    <button onclick="closeModal()" class="close-btn">Close</button>
+
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
